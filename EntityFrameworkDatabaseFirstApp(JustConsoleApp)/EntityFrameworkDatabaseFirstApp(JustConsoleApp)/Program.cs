@@ -13,70 +13,94 @@ namespace EntityFrameworkDatabaseFirstApp_JustConsoleApp_
         {
             NORTHWNDEntities db = new NORTHWNDEntities();
 
-            //select * from Categories
-            //var result = db.Categories; // -> METHOD format writing
-            /*var result = from cat in db.Categories
-                         select cat;*/ //  -> LINQ format writing
-
-            //select CategoryID as Id, CategoryName as Name from Categories 
-            /*var result = db.Categories.Select(x=>new {
-                Id=x.CategoryID,
-                Name=x.CategoryName
-            }); *///  -> METHOD format writing
-
-            /*var result = from cat in db.Categories
+            /*select ProductName, CategoryName from Categories 
+            join Products on Categories.CategoryID=Products.CategoryID*/
+            /*var result = from c in db.Categories
+                         join p in db.Products
+                         on c.CategoryID equals p.CategoryID
                          select new
                          {
-                             Id = cat.CategoryID,
-                             Name = cat.CategoryName
-                         };*/ //  -> LINQ format writing
+                             p.ProductName,
+                             c.CategoryName
+                         };*///  -> LINQ format writing
 
-            //select top(2) * from Categories 
-            /*var result = db.Categories.Take(2);*/ //  -> METHOD format writing
+            /*select ProductName, CategoryName, UnitPrice from Categories 
+            join Products on Categories.CategoryID=Products.CategoryID
+            order by UnitPrice desc*/
+            /*var result = from c in db.Categories
+                         join p in db.Products
+                         on c.CategoryID equals p.CategoryID
+                         orderby p.UnitPrice descending
+                         select new
+                         {
+                             p.ProductName,
+                             c.CategoryName,
+                             p.UnitPrice
+                         };*///  -> LINQ format writing
 
-            //select * from Categories order by CategoryName
-            /*var result = db.Categories.OrderBy(x=>x.CategoryName);*/ //  -> METHOD format writing
+            /*select CategoryID, COUNT(*) as NumberOfProducts from Products
+             group by CategoryID*/
+            /*var result = from p in db.Products
+                         group p by p.CategoryID into g
+                         select new
+                         {
+                             g.Key,
+                             NumberOfProducts = g.Count()
+                         };*///  -> LINQ format writing
 
-            //select * from Categories order by CategoryName desc
-            /*var result = db.Categories.OrderByDescending(x => x.CategoryName);*/ //  -> METHOD format writing
+            /*select CategoryID, COUNT(*) as NumberOfProducts from Categories
+             join Products on Categories.CategoryID=Products.CategoryID
+             group by CategoryName*/
+            /*var result = from p in db.Products
+                         join c in db.Categories
+                         on p.CategoryID equals c.CategoryID
+                         group c by c.CategoryName into g
+                         select new
+                         {
+                             g.Key,
+                             NumberOfProducts = g.Count()
+                         };*///  -> LINQ format writing
 
-            //select * from Categories where CategoryID<5 
-            /*var result = db.Categories.Where(x => x.CategoryID<5);*/ //  -> METHOD format writing
+            /*select CategoryName, COUNT(*) as NumberOfProducts
+             SUM(UnitPrice) as TotalPrice,
+             MAX(UnitPrice) MaxPrice,
+             MIN(UnitPrice) MinPrice
+             from Categories
+             join Products on Categories.CategoryID=Products.CategoryID
+             group by CategoryName*/
+            /*var result = from p in db.Products
+                         join c in db.Categories
+                         on p.CategoryID equals c.CategoryID
+                         group new { c, p } by new { c.CategoryName } into g
+                         select new
+                         {
+                             g.Key.CategoryName,
+                             NumberOfProducts = g.Count(),
+                             TotalPrice = g.Sum(x => x.p.UnitPrice),
+                             MaxPrice = g.Max(x => x.p.UnitPrice),
+                             MinPrice = g.Min(x => x.p.UnitPrice)
+                         };*///  -> LINQ format writing
 
-            //select * from Categories where CategoryID=1 or CategoryID=3 
-            //var result = db.Categories.Where(x => x.CategoryID ==1 || 
-            //x.CategoryID==3); //  -> METHOD format writing
-
-            //select SUM(CategoryID) from Categories
-            //var result = db.Categories.Sum(x => x.CategoryID); //  -> METHOD format writing
-            //Console.WriteLine(result);
-
-            //select AVG(CategoryID) from Categories
-            //var result = db.Categories.Average(x => x.CategoryID); //  -> METHOD format writing
-            //Console.WriteLine(result);
-
-            //select MAX(CategoryID) from Categories
-            //var result = db.Categories.Max(x => x.CategoryID); //  -> METHOD format writing
-            //Console.WriteLine(result);
-
-            //select MIN(CategoryID) from Categories
-            //var result = db.Categories.Min(x => x.CategoryID); //  -> METHOD format writing
-            //Console.WriteLine(result);
-
-            //select CategoryID as Id, CategoryID*CategoryID as IdKare from Categories
-            //var result = db.Categories.Select(x => new {
-            //    Id=x.CategoryID,
-            //    IdKare=x.CategoryID*x.CategoryID
-            //}); //  -> METHOD format writing
-
-            //select * from Categories where CategoryName like '%ro%'
-            //var result = db.Categories.Where(x => x.CategoryName.Contains("ro")); //  -> METHOD format writing
-
-            //select * from Categories where CategoryName like 'pr%'
-            //var result = db.Categories.Where(x => x.CategoryName.StartsWith("pr")); //  -> METHOD format writing
-
-            //select * from Categories where CategoryName like '%ts'
-            var result = db.Categories.Where(x => x.CategoryName.EndsWith("ts")); //  -> METHOD format writing
+            /*select CategoryName, COUNT(*) as NumberOfProducts
+            SUM(UnitPrice) as TotalPrice,
+            MAX(UnitPrice) MaxPrice,
+            MIN(UnitPrice) MinPrice
+            from Categories
+            join Products on Categories.CategoryID=Products.CategoryID
+            group by CategoryName
+            having SUM(UnitPrice)>300*/
+            var result = (from p in db.Products
+                         join c in db.Categories
+                         on p.CategoryID equals c.CategoryID
+                         group new { c, p } by new { c.CategoryName } into g
+                         select new
+                         {
+                             g.Key.CategoryName,
+                             NumberOfProducts = g.Count(),
+                             TotalPrice = g.Sum(x => x.p.UnitPrice),
+                             MaxPrice = g.Max(x => x.p.UnitPrice),
+                             MinPrice = g.Min(x => x.p.UnitPrice)
+                         }).Where(x=>x.TotalPrice>300);//  -> LINQ format writing
             ConsoleTable.From(result).Write();
             Console.ReadLine();
         }
