@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ConsoleTables, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ConsoleTables.2.4.2\lib\net40\ConsoleTables.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -70,15 +73,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>NorthWindModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Product.cs">
-      <DependentUpon>NorthWindModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sales_by_Year_Result.cs">
-      <DependentUpon>NorthWindModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Supplier.cs">
       <DependentUpon>NorthWindModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Ten_Most_Expensive_Products_Result.cs">

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleTables;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,70 +12,72 @@ namespace EntityFrameworkDatabaseFirstApp_JustConsoleApp_
         static void Main(string[] args)
         {
             NORTHWNDEntities db = new NORTHWNDEntities();
-            //CRUD Methods
-            //Create
-            /*
-            var category = new Category();
-            category.CategoryName = "Cookies";
-            category.Description = "Hazelnut, walnut...";
-            db.Categories.Add(category);
-            db.SaveChanges();
-            */
-            //-----------------------
 
-            //Read
-            /*
-            var categories = db.Categories;
-            foreach (var category in categories)
-            {
-                Console.WriteLine(category.CategoryName +" /"+category.Description);
-            }
-            */
-            //-----------------------
+            //select * from Categories
+            //var result = db.Categories; // -> METHOD format writing
+            /*var result = from cat in db.Categories
+                         select cat;*/ //  -> LINQ format writing
 
-            //Update
-            /*
-            var category = db.Categories.Find(18);
-            category.CategoryName = "Drinks";
-            category.Description = "Water, juice...";
-            db.SaveChanges();
-            */
-            //-----------------------
+            //select CategoryID as Id, CategoryName as Name from Categories 
+            /*var result = db.Categories.Select(x=>new {
+                Id=x.CategoryID,
+                Name=x.CategoryName
+            }); *///  -> METHOD format writing
 
-            //Delete
-            /*
-            var category = db.Categories.Find(18);
-            db.Categories.Remove(category);
-            db.SaveChanges();
-            */
-            //-----------------------
+            /*var result = from cat in db.Categories
+                         select new
+                         {
+                             Id = cat.CategoryID,
+                             Name = cat.CategoryName
+                         };*/ //  -> LINQ format writing
 
+            //select top(2) * from Categories 
+            /*var result = db.Categories.Take(2);*/ //  -> METHOD format writing
 
-            //var categories = db.Categories;
-            //Console.WriteLine("\nCategories Outputs from DB:");
-            //Console.WriteLine("-----------");
-            //foreach (var cat in categories)
-            //{
-            //    Console.WriteLine(cat.CategoryName);
-            //}
+            //select * from Categories order by CategoryName
+            /*var result = db.Categories.OrderBy(x=>x.CategoryName);*/ //  -> METHOD format writing
 
-            //Console.WriteLine("\n____________________________________");
-            //Console.WriteLine("\nStore Procedure Outputs about Ten Most Expensive Products with its Unit Prices:");
-            //Console.WriteLine("-----------");
-            //var products = db.Ten_Most_Expensive_Products();
-            //foreach (var product in products)
-            //{
-            //    Console.WriteLine(product.TenMostExpensiveProducts + "/" + product.UnitPrice);
-            //}
+            //select * from Categories order by CategoryName desc
+            /*var result = db.Categories.OrderByDescending(x => x.CategoryName);*/ //  -> METHOD format writing
 
-            //Console.WriteLine("\n____________________________________");
-            //Console.WriteLine("\nStore Procedure Outputs about Sales By Year from 1997 to now:");
-            //Console.WriteLine("-----------");
-            //var sales = db.Sales_by_Year(new DateTime(1997, 1, 1), DateTime.Now);
-            //foreach (var sale in sales)
-            //{
-            //    Console.WriteLine(sale.Year + "/" + sale.Subtotal);
-            //}
+            //select * from Categories where CategoryID<5 
+            /*var result = db.Categories.Where(x => x.CategoryID<5);*/ //  -> METHOD format writing
+
+            //select * from Categories where CategoryID=1 or CategoryID=3 
+            //var result = db.Categories.Where(x => x.CategoryID ==1 || 
+            //x.CategoryID==3); //  -> METHOD format writing
+
+            //select SUM(CategoryID) from Categories
+            //var result = db.Categories.Sum(x => x.CategoryID); //  -> METHOD format writing
+            //Console.WriteLine(result);
+
+            //select AVG(CategoryID) from Categories
+            //var result = db.Categories.Average(x => x.CategoryID); //  -> METHOD format writing
+            //Console.WriteLine(result);
+
+            //select MAX(CategoryID) from Categories
+            //var result = db.Categories.Max(x => x.CategoryID); //  -> METHOD format writing
+            //Console.WriteLine(result);
+
+            //select MIN(CategoryID) from Categories
+            //var result = db.Categories.Min(x => x.CategoryID); //  -> METHOD format writing
+            //Console.WriteLine(result);
+
+            //select CategoryID as Id, CategoryID*CategoryID as IdKare from Categories
+            //var result = db.Categories.Select(x => new {
+            //    Id=x.CategoryID,
+            //    IdKare=x.CategoryID*x.CategoryID
+            //}); //  -> METHOD format writing
+
+            //select * from Categories where CategoryName like '%ro%'
+            //var result = db.Categories.Where(x => x.CategoryName.Contains("ro")); //  -> METHOD format writing
+
+            //select * from Categories where CategoryName like 'pr%'
+            //var result = db.Categories.Where(x => x.CategoryName.StartsWith("pr")); //  -> METHOD format writing
+
+            //select * from Categories where CategoryName like '%ts'
+            var result = db.Categories.Where(x => x.CategoryName.EndsWith("ts")); //  -> METHOD format writing
+            ConsoleTable.From(result).Write();
             Console.ReadLine();
         }
     }

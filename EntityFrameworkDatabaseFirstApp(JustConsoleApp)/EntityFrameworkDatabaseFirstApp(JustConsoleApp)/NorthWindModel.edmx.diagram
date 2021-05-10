@@ -6,11 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="4f91a53d90f34dc3942d41eb026b23f7" Name="Diagram1">
         <EntityTypeShape EntityType="NORTHWNDdModel.Category" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="NORTHWNDdModel.Product" Width="1.5" PointX="3" PointY="0.75" />
-        <EntityTypeShape EntityType="NORTHWNDdModel.Supplier" Width="1.5" PointX="6.5" PointY="1" />
-        <AssociationConnector Association="NORTHWNDdModel.FK_Products_Categories" />
-        <AssociationConnector Association="NORTHWNDdModel.FK_Products_Suppliers" />
-      </Diagram>
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

@@ -28,8 +28,6 @@ namespace EntityFrameworkDatabaseFirstApp_JustConsoleApp_
         }
     
         public virtual DbSet<Category> Categories { get; set; }
-        public virtual DbSet<Product> Products { get; set; }
-        public virtual DbSet<Supplier> Suppliers { get; set; }
     
         public virtual ObjectResult<Ten_Most_Expensive_Products_Result> Ten_Most_Expensive_Products()
         {
