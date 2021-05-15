@@ -54,6 +54,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FootballDbContext.cs" />
+    <Compile Include="Migrations\202105152130379_CreateTeamsTable.cs" />
+    <Compile Include="Migrations\202105152130379_CreateTeamsTable.designer.cs">
+      <DependentUpon>202105152130379_CreateTeamsTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -62,6 +66,11 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202105152130379_CreateTeamsTable.resx">
+      <DependentUpon>202105152130379_CreateTeamsTable.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
