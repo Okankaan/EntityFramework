@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 
 namespace FootballApplication_CodeFirst_ConsoleApp_
 {
-    class Program
+    public class FootballContext : DbContext
     {
-        static void Main(string[] args)
+        public DbSet<Team> Teams { get; set; }
+        public FootballContext() : base("FootballDbConStr")
         {
+
         }
     }
 }

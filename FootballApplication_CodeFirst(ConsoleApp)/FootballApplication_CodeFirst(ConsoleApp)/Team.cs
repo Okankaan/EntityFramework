@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace FootballApplication_CodeFirst_ConsoleApp_
 {
-    class Program
+    public class Team
     {
-        static void Main(string[] args)
-        {
-        }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public short YearOfFoundation { get; set; }
     }
 }
