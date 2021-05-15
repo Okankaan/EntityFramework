@@ -13,5 +13,6 @@ namespace FootballApp_AutomaticMigrationEnabled_false
         public string Surname { get; set; }
         public DateTime DateOfBirth { get; set; }
         public Team Team { get; set; }
+        public PlayerAddress Address { get; set; }
     }
 }
