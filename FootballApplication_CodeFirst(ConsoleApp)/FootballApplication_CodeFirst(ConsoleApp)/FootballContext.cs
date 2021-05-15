@@ -10,6 +10,7 @@ namespace FootballApplication_CodeFirst_ConsoleApp_
     public class FootballContext : DbContext
     {
         public DbSet<Team> Teams { get; set; }
+        public DbSet<Player> Players { get; set; }
         public FootballContext() : base("FootballDbConStr")
         {
 
