@@ -11,19 +11,13 @@ namespace EntityFrameworkDatabaseFirstApp_JustConsoleApp_
     {
         static void Main(string[] args)
         {
-            //Skip(n) method using for Skip and don't get the first n piece of the result set you found.
-            //Take(n) method using for Take and get first n piece of the result set of after Skipping n piece result.
+            //All() method using for All DB data sets(return true or false)
+            //Any() method using for Any DB data sets(return true or false)
+            //Any() methodu genellikle Login işlemlerinde, böyle bir kullanıcı var mı? şeklinde kullanıyoruz.
             NORTHWNDEntities db = new NORTHWNDEntities();
-            var products = db.Products
-                .OrderBy(x => x.CategoryID) //Order for CategoryID
-                .Skip(12) //Skip and don't get the first 12 of the result set you found.(Bulduğun sonuç kümesinden ilk 12 tanesini atla, gösterme.) 
-                .Take(5) //Take and get first 5 of the result set of after Skipping 12 result.(Atlanan 12 üründen sonra gelen ilk 5 ürünü al ve göster.) 
-                .Select(x => new
-                {
-                    x.CategoryID,
-                    x.ProductName
-                });
-            ConsoleTable.From(products).Write();
+            //var result = db.Products.All(x=>x.UnitPrice>0); //If UnitPrice > 0 of my All Products return true.
+            var result = db.Products.Any(x => x.UnitPrice > 0); //If UnitPrice > 0 of my Any Products return true.
+            Console.WriteLine(result);
             Console.ReadLine();
         }
     }
