@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace FootballApp_AutomaticMigrationEnabled_false
 {
-    public class Team
+    public class Sponsor
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public short YearOfFoundation { get; set; }
-        public ICollection<Player> Players { get; set; }
-        public ICollection<Sponsor> Sponsors { get; set; }
+        public ICollection<Team> Teams { get; set; }
     }
 }

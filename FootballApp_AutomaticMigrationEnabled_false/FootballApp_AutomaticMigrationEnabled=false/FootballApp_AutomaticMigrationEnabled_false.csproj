@@ -70,11 +70,16 @@
     <Compile Include="Migrations\202105152142592_CreatePlayerAddressTable.designer.cs">
       <DependentUpon>202105152142592_CreatePlayerAddressTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105152148119_CreateSponsorTable.cs" />
+    <Compile Include="Migrations\202105152148119_CreateSponsorTable.designer.cs">
+      <DependentUpon>202105152148119_CreateSponsorTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerAddress.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sponsor.cs" />
     <Compile Include="Team.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -93,6 +98,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105152142592_CreatePlayerAddressTable.resx">
       <DependentUpon>202105152142592_CreatePlayerAddressTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105152148119_CreateSponsorTable.resx">
+      <DependentUpon>202105152148119_CreateSponsorTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
