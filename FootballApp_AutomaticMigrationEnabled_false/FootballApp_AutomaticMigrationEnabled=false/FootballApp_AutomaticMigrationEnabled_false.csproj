@@ -74,6 +74,10 @@
     <Compile Include="Migrations\202105152148119_CreateSponsorTable.designer.cs">
       <DependentUpon>202105152148119_CreateSponsorTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105152151551_RenameNameToNameOfTeamInTeamsTable.cs" />
+    <Compile Include="Migrations\202105152151551_RenameNameToNameOfTeamInTeamsTable.designer.cs">
+      <DependentUpon>202105152151551_RenameNameToNameOfTeamInTeamsTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerAddress.cs" />
@@ -101,6 +105,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105152148119_CreateSponsorTable.resx">
       <DependentUpon>202105152148119_CreateSponsorTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105152151551_RenameNameToNameOfTeamInTeamsTable.resx">
+      <DependentUpon>202105152151551_RenameNameToNameOfTeamInTeamsTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
