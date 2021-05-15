@@ -11,13 +11,13 @@ namespace EntityFrameworkDatabaseFirstApp_JustConsoleApp_
     {
         static void Main(string[] args)
         {
-            //ThenBy() method using for instead of 2 different OrderBy() method.
-            //We can not using 2 OrderBy() method, if we use 2 OrderBy() methods, just second OrderBy() method running, first OrderBy() method is not run.
+            //Skip(n) method using for Skip and don't get the first n piece of the result set you found.
+            //Take(n) method using for Take and get first n piece of the result set of after Skipping n piece result.
             NORTHWNDEntities db = new NORTHWNDEntities();
             var products = db.Products
                 .OrderBy(x => x.CategoryID) //Order for CategoryID
-                /*.OrderBy(x => x.ProductName)*/  //Order for ProductName
-                .ThenBy(x => x.ProductName)
+                .Skip(12) //Skip and don't get the first 12 of the result set you found.(Bulduğun sonuç kümesinden ilk 12 tanesini atla, gösterme.) 
+                .Take(5) //Take and get first 5 of the result set of after Skipping 12 result.(Atlanan 12 üründen sonra gelen ilk 5 ürünü al ve göster.) 
                 .Select(x => new
                 {
                     x.CategoryID,
