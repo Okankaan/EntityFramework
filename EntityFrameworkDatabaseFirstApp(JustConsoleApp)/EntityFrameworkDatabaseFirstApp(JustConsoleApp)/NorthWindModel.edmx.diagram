@@ -8,6 +8,8 @@
         <EntityTypeShape EntityType="NORTHWNDdModel.Category" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="NORTHWNDdModel.Product" Width="1.5" PointX="3" PointY="5.5" />
         <AssociationConnector Association="NORTHWNDdModel.FK_Products_Categories" />
+        <EntityTypeShape EntityType="NORTHWNDdModel.Supplier" Width="1.5" PointX="5.375" PointY="1" />
+        <AssociationConnector Association="NORTHWNDdModel.FK_Products_Suppliers" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

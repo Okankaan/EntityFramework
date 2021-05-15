@@ -81,6 +81,9 @@
     <Compile Include="Sales_by_Year_Result.cs">
       <DependentUpon>NorthWindModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Supplier.cs">
+      <DependentUpon>NorthWindModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Ten_Most_Expensive_Products_Result.cs">
       <DependentUpon>NorthWindModel.tt</DependentUpon>
     </Compile>
