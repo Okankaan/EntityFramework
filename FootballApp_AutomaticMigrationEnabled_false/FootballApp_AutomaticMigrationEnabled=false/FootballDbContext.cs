@@ -10,6 +10,7 @@ namespace FootballApp_AutomaticMigrationEnabled_false
     public class FootballDbContext:DbContext
     {
         public DbSet<Team> Teams { get; set; }
+        public DbSet<Player> Players { get; set; }
         public FootballDbContext():base("FootballDbConStr")
         {
 
