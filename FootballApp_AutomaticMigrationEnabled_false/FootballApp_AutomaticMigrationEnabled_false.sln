@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FootballApp_AutomaticMigrationEnabled=false", "FootballApp_AutomaticMigrationEnabled=false\FootballApp_AutomaticMigrationEnabled=false.csproj", "{5E81ACB0-4F27-477B-B11D-72ABA71A8537}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FootballApp_AutomaticMigrationEnabled_false", "FootballApp_AutomaticMigrationEnabled=false\FootballApp_AutomaticMigrationEnabled_false.csproj", "{5E81ACB0-4F27-477B-B11D-72ABA71A8537}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
