@@ -11,20 +11,19 @@ namespace EntityFrameworkDatabaseFirstApp_JustConsoleApp_
     {
         static void Main(string[] args)
         {
+            //ThenBy() method using for instead of 2 different OrderBy() method.
+            //We can not using 2 OrderBy() method, if we use 2 OrderBy() methods, just second OrderBy() method running, first OrderBy() method is not run.
             NORTHWNDEntities db = new NORTHWNDEntities();
-            //var category = db.Categories.Find(1); //Lazy Loading = True of my NortWindModel.edmx[Diagram]
-
-            var category = db.Categories.Include("Products") //Lazy Loading = False of my NortWindModel.edmx[Diagram]
-                .Include("Products.Supplier").               //When Lazy Loading = False mean Eager Loading is True
-                FirstOrDefault(x => x.CategoryID == 1);      //Eager Loading used for just one request sending to DB.
-
-            var products = category.Products;
-            foreach (var product in products)
-            {
-                Console.WriteLine(product.ProductName);
-                Console.WriteLine(product.Supplier.ContactName);
-
-            }
+            var products = db.Products
+                .OrderBy(x => x.CategoryID) //Order for CategoryID
+                /*.OrderBy(x => x.ProductName)*/  //Order for ProductName
+                .ThenBy(x => x.ProductName)
+                .Select(x => new
+                {
+                    x.CategoryID,
+                    x.ProductName
+                });
+            ConsoleTable.From(products).Write();
             Console.ReadLine();
         }
     }
