@@ -11,5 +11,6 @@ namespace FootballApp_AutomaticMigrationEnabled_false
         public int Id { get; set; }
         public string Name { get; set; }
         public short YearOfFoundation { get; set; }
+        public ICollection<Player> Players { get; set; }
     }
 }

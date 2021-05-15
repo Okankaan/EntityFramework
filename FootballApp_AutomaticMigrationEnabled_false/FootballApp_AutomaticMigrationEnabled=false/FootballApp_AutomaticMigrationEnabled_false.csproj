@@ -62,6 +62,10 @@
     <Compile Include="Migrations\202105152135035_CreatePlayersTable.designer.cs">
       <DependentUpon>202105152135035_CreatePlayersTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105152137528_AddTeamColumnToPlayerTable.cs" />
+    <Compile Include="Migrations\202105152137528_AddTeamColumnToPlayerTable.designer.cs">
+      <DependentUpon>202105152137528_AddTeamColumnToPlayerTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
@@ -78,6 +82,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105152135035_CreatePlayersTable.resx">
       <DependentUpon>202105152135035_CreatePlayersTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105152137528_AddTeamColumnToPlayerTable.resx">
+      <DependentUpon>202105152137528_AddTeamColumnToPlayerTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
