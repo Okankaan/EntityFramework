@@ -59,6 +59,7 @@
     <Compile Include="PlayerAddress.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sponsor.cs" />
     <Compile Include="Team.cs" />
   </ItemGroup>
   <ItemGroup>
