@@ -87,6 +87,10 @@
     <Compile Include="Migrations\202105160056155_CreateCountryColumnInTeamsTable.designer.cs">
       <DependentUpon>202105160056155_CreateCountryColumnInTeamsTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105160101017_CreatePopulationColumnInCountriesTable.cs" />
+    <Compile Include="Migrations\202105160101017_CreatePopulationColumnInCountriesTable.designer.cs">
+      <DependentUpon>202105160101017_CreatePopulationColumnInCountriesTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerAddress.cs" />
@@ -123,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105160056155_CreateCountryColumnInTeamsTable.resx">
       <DependentUpon>202105160056155_CreateCountryColumnInTeamsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105160101017_CreatePopulationColumnInCountriesTable.resx">
+      <DependentUpon>202105160101017_CreatePopulationColumnInCountriesTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
