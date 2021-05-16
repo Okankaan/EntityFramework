@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Country.cs" />
     <Compile Include="FootballDbContext.cs" />
     <Compile Include="Migrations\202105152130379_CreateTeamsTable.cs" />
     <Compile Include="Migrations\202105152130379_CreateTeamsTable.designer.cs">
@@ -77,6 +78,10 @@
     <Compile Include="Migrations\202105152151551_RenameNameToNameOfTeamInTeamsTable.cs" />
     <Compile Include="Migrations\202105152151551_RenameNameToNameOfTeamInTeamsTable.designer.cs">
       <DependentUpon>202105152151551_RenameNameToNameOfTeamInTeamsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105160047385_CreateCountriesTable.cs" />
+    <Compile Include="Migrations\202105160047385_CreateCountriesTable.designer.cs">
+      <DependentUpon>202105160047385_CreateCountriesTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Player.cs" />
@@ -108,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105152151551_RenameNameToNameOfTeamInTeamsTable.resx">
       <DependentUpon>202105152151551_RenameNameToNameOfTeamInTeamsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105160047385_CreateCountriesTable.resx">
+      <DependentUpon>202105160047385_CreateCountriesTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
